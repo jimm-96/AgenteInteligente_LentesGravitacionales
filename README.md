@@ -87,14 +87,50 @@ El sistema final fue sometido a una evaluación de calidad cuantitativa empleand
 
 ## 6. Requisitos e Instalación
 
-Para ejecutar la aplicación localmente, asegúrate de contar con Python 3.9+ e instalar las dependencias requeridas en tu entorno virtual:
+Para ejecutar la aplicación localmente, asegúrate de contar con una versión de **Python compatible (entre 3.9 y 3.13)**. 
+
+> [!IMPORTANT]
+> **TensorFlow** no es compatible actualmente con **Python 3.14**. Si tu versión predeterminada del sistema es Python 3.14+, debes forzar la creación del entorno virtual con una versión compatible (por ejemplo, Python 3.13).
+
+### 1. Crear el Entorno Virtual
+
+Crea el entorno virtual especificando una versión compatible:
+
+*   **Windows (usando el Python Launcher `py`):**
+    ```powershell
+    py -3.13 -m venv env
+    ```
+*   **macOS / Linux / Unix (o si tu comando `python` ya apunta a una versión compatible):**
+    ```bash
+    python3 -m venv env
+    ```
+
+> [!TIP]
+> **¿Error `Unable to copy...` en Windows?**
+> Si el comando falla indicando que no se pudo copiar `venvlauncher.exe` o `python.exe`, significa que un proceso (como tu editor de código, una terminal activa o el corrector de sintaxis/language server de Python) está utilizando el entorno virtual actual y tiene bloqueado el archivo. Cierra tu editor (como VS Code) y cualquier otra consola, y vuelve a intentar el comando.
+
+### 2. Activar el Entorno Virtual
+
+Activa el entorno según tu sistema y consola:
+
+*   **Windows (PowerShell):**
+    ```powershell
+    .\env\Scripts\Activate.ps1
+    ```
+*   **Windows (Símbolo del sistema / CMD):**
+    ```cmd
+    env\Scripts\activate.bat
+    ```
+*   **macOS / Linux / Git Bash:**
+    ```bash
+    source env/bin/activate
+    ```
+
+### 3. Instalar Dependencias
+
+Con el entorno virtual activo, instala las dependencias necesarias:
 
 ```bash
-# Crear y activar entorno virtual
-python -m venv env
-source env/Scripts/activate  # En Windows: env\Scripts\activate
-
-# Instalar dependencias requeridas
 pip install numpy tensorflow customtkinter pillow
 ```
 
