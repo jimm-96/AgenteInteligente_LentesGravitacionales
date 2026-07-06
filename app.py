@@ -18,7 +18,7 @@ import customtkinter as ctkinter
 from PIL import Image
 import tensorflow as tf
 
-ctkinter.set_appearance_mode("Dark")
+ctkinter.set_appearance_mode("Light")
 ctkinter.set_default_color_theme("blue")
 
 
@@ -65,7 +65,7 @@ class RomanFairAppAdvanced(ctkinter.CTk):
         # PANEL 1: BANNER SUPERIOR CIENTÍFICO
         # ============================================================
         self.top_panel = ctkinter.CTkFrame(
-            self, height=80, corner_radius=8, fg_color="#1a1a2e"
+            self, height=80, corner_radius=8, fg_color=("#e0e7ff", "#1a1a2e")
         )
         self.top_panel.grid(
             row=0, column=0, columnspan=3, sticky="nsew", padx=12, pady=(12, 4)
@@ -78,7 +78,7 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.top_panel,
             text="PROJECT: LENS SENTINEL AI",
             font=ctkinter.CTkFont(family="Arial", size=22, weight="bold"),
-            text_color="#e0e0ff",
+            text_color=("#1e3a8a", "#e0e0ff"),
         )
         self.title_label.grid(row=0, column=0, padx=20, pady=(12, 2), sticky="w")
 
@@ -86,15 +86,16 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.top_panel,
             text="Filtro inteligente y triaje de anomalías cósmicas para el Telescopio Nancy Grace Roman",
             font=ctkinter.CTkFont(family="Arial", size=12, weight="normal"),
-            text_color="#b0b0d0",
+            text_color=("#2563eb", "#b0b0d0"),
         )
         self.sub_title_label.grid(row=1, column=0, padx=20, pady=(0, 12), sticky="w")
 
         self.btn_reset = ctkinter.CTkButton(
             self.top_panel,
             text="🔄 REINICIAR SISTEMA",
-            fg_color="#5c2424",
-            hover_color="#a12d2d",
+            fg_color=("#ef4444", "#5c2424"),
+            hover_color=("#dc2626", "#a12d2d"),
+            text_color=("white", "white"),
             command=self.reset_system,
             font=ctkinter.CTkFont(size=13, weight="bold"),
             height=38,
@@ -108,8 +109,9 @@ class RomanFairAppAdvanced(ctkinter.CTk):
         self.btn_stream = ctkinter.CTkButton(
             self.top_panel,
             text="INICIAR INGESTA MASIVA",
-            fg_color="#1f538d",
-            hover_color="#2979ff",
+            fg_color=("#2563eb", "#1f538d"),
+            hover_color=("#1d4ed8", "#2979ff"),
+            text_color=("white", "white"),
             command=self.start_triage_stream,
             font=ctkinter.CTkFont(size=13, weight="bold"),
             height=38,
@@ -134,8 +136,8 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.dash_panel,
             text="📊  Total Procesado: 0",
             font=ctkinter.CTkFont(size=14, weight="bold"),
-            fg_color="#2b2b2b",
-            text_color="#e0e0e0",
+            fg_color=("#e2e8f0", "#2b2b2b"),
+            text_color=("#1e293b", "#e0e0e0"),
             corner_radius=6,
             height=42,
         )
@@ -146,8 +148,8 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.dash_panel,
             text="⚡  Carga Humana Reducida: 0%",
             font=ctkinter.CTkFont(size=14, weight="bold"),
-            fg_color="#1e3a5f",
-            text_color="#64b5f6",
+            fg_color=("#dbeafe", "#1e3a5f"),
+            text_color=("#2563eb", "#64b5f6"),
             corner_radius=6,
             height=42,
         )
@@ -158,8 +160,8 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.dash_panel,
             text="🚨  Alertas a Validar: 0",
             font=ctkinter.CTkFont(size=14, weight="bold"),
-            fg_color="#1b5e20",
-            text_color="#a5d6a7",
+            fg_color=("#dcfce7", "#1b5e20"),
+            text_color=("#16a34a", "#a5d6a7"),
             corner_radius=6,
             height=42,
         )
@@ -170,7 +172,7 @@ class RomanFairAppAdvanced(ctkinter.CTk):
         # ============================================================
         # --- CABECERA COLUMNA 1 ---
         self.head_archived = ctkinter.CTkFrame(
-            self, fg_color="#1c1c1c", corner_radius=8
+            self, fg_color=("#e2e8f0", "#1c1c1c"), corner_radius=8
         )
         self.head_archived.grid(row=2, column=0, sticky="ew", padx=(12, 4), pady=(8, 2))
         self.head_archived.grid_columnconfigure(0, weight=1)
@@ -179,21 +181,21 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.head_archived,
             text="⚪ Archivado Autónomo (P ≤ 0.35)",
             font=ctkinter.CTkFont(size=14, weight="bold"),
-            text_color="#9e9e9e",
+            text_color=("#475569", "#9e9e9e"),
         ).grid(row=0, column=0, padx=12, pady=(8, 2), sticky="w")
 
         ctkinter.CTkLabel(
             self.head_archived,
             text="Galaxias normales • IA las descarta sola • ~50% Ahorro",
             font=ctkinter.CTkFont(size=10, weight="normal"),
-            text_color="#757575",
+            text_color=("#64748b", "#757575"),
         ).grid(row=1, column=0, padx=12, pady=(0, 8), sticky="w")
 
         # --- COLUMNA 1: Archivado (Gris oscuro) ---
         self.col_archived = ctkinter.CTkScrollableFrame(
             self,
             label_text="",
-            fg_color="#1c1c1c",
+            fg_color=("#f8fafc", "#1c1c1c"),
             corner_radius=8,
         )
         self.col_archived.grid(
@@ -202,7 +204,7 @@ class RomanFairAppAdvanced(ctkinter.CTk):
 
         # --- CABECERA COLUMNA 2 ---
         self.head_secondary = ctkinter.CTkFrame(
-            self, fg_color="#1e1a0e", corner_radius=8
+            self, fg_color=("#fef3c7", "#1e1a0e"), corner_radius=8
         )
         self.head_secondary.grid(row=2, column=1, sticky="ew", padx=4, pady=(8, 2))
         self.head_secondary.grid_columnconfigure(0, weight=1)
@@ -211,27 +213,29 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.head_secondary,
             text="🟡 Revisión Secundaria (Ambigüedad)",
             font=ctkinter.CTkFont(size=14, weight="bold"),
-            text_color="#ffb300",
+            text_color=("#d97706", "#ffb300"),
         ).grid(row=0, column=0, padx=12, pady=(8, 2), sticky="w")
 
         ctkinter.CTkLabel(
             self.head_secondary,
             text="Casos inciertos o con ruido • Aislados por precaución",
             font=ctkinter.CTkFont(size=10, weight="normal"),
-            text_color="#d69e2e",
+            text_color=("#b45309", "#d69e2e"),
         ).grid(row=1, column=0, padx=12, pady=(0, 8), sticky="w")
 
         # --- COLUMNA 2: Revisión Secundaria (Ámbar) ---
         self.col_secondary = ctkinter.CTkScrollableFrame(
             self,
             label_text="",
-            fg_color="#1e1a0e",
+            fg_color=("#fffbeb", "#1e1a0e"),
             corner_radius=8,
         )
         self.col_secondary.grid(row=3, column=1, sticky="nsew", padx=4, pady=(2, 12))
 
         # --- CABECERA COLUMNA 3 ---
-        self.head_urgent = ctkinter.CTkFrame(self, fg_color="#0d1f14", corner_radius=8)
+        self.head_urgent = ctkinter.CTkFrame(
+            self, fg_color=("#dcfce7", "#0d1f14"), corner_radius=8
+        )
         self.head_urgent.grid(row=2, column=2, sticky="ew", padx=(4, 12), pady=(8, 2))
         self.head_urgent.grid_columnconfigure(0, weight=1)
 
@@ -239,21 +243,21 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.head_urgent,
             text="🟢 Despacho Crítico (P ≥ 0.85)",
             font=ctkinter.CTkFont(size=14, weight="bold"),
-            text_color="#2ecc71",
+            text_color=("#16a34a", "#2ecc71"),
         ).grid(row=0, column=0, padx=12, pady=(8, 2), sticky="w")
 
         ctkinter.CTkLabel(
             self.head_urgent,
             text="Candidatos a lentes • ¡Haga clic para validar como experto!",
             font=ctkinter.CTkFont(size=10, weight="bold"),
-            text_color="#27ae60",
+            text_color=("#15803d", "#27ae60"),
         ).grid(row=1, column=0, padx=12, pady=(0, 8), sticky="w")
 
         # --- COLUMNA 3: Despacho Crítico (Verde) ---
         self.col_urgent = ctkinter.CTkScrollableFrame(
             self,
             label_text="",
-            fg_color="#0d1f14",
+            fg_color=("#f0fdf4", "#0d1f14"),
             corner_radius=8,
         )
         self.col_urgent.grid(row=3, column=2, sticky="nsew", padx=(4, 12), pady=(2, 12))
@@ -265,9 +269,9 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self,
             height=35,
             corner_radius=8,
-            fg_color="#111118",
+            fg_color=("#f1f5f9", "#111118"),
             border_width=1,
-            border_color="#1f1f3a",
+            border_color=("#cbd5e1", "#1f1f3a"),
         )
         self.log_panel.grid(
             row=4, column=0, columnspan=3, sticky="ew", padx=12, pady=(4, 12)
@@ -278,7 +282,7 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             self.log_panel,
             text="[SISTEMA] Listo para iniciar ingesta y triaje de datos.",
             font=ctkinter.CTkFont(family="Courier New", size=12, weight="bold"),
-            text_color="#88a888",
+            text_color=("#166534", "#88a888"),
         )
         self.lbl_status_log.grid(row=0, column=0, padx=15, pady=5, sticky="w")
 
@@ -298,14 +302,14 @@ class RomanFairAppAdvanced(ctkinter.CTk):
         # Cambiar color de la tarjeta de ahorro dinámicamente
         if porcentaje_ahorro >= 50:
             self.card_saved.configure(
-                fg_color="#1e3a5f",
-                text_color="#64b5f6",
+                fg_color=("#dbeafe", "#1e3a5f"),
+                text_color=("#2563eb", "#64b5f6"),
                 text=f"⚡  Carga Humana Reducida: {porcentaje_ahorro:.1f}%",
             )
         else:
             self.card_saved.configure(
-                fg_color="#2b2b2b",
-                text_color="#b0bec5",
+                fg_color=("#e2e8f0", "#2b2b2b"),
+                text_color=("#475569", "#b0bec5"),
                 text=f"⚡  Carga Humana Reducida: {porcentaje_ahorro:.1f}%",
             )
         self.card_urgent.configure(text=f"🚨  Alertas a Validar: {self.cnt_urgent}")
@@ -317,7 +321,9 @@ class RomanFairAppAdvanced(ctkinter.CTk):
         if self.current_idx >= len(self.x_test):
             self.is_streaming = False
             self.btn_stream.configure(
-                text="✓ FLUJO COMPLETADO", fg_color="#1b5e20", state="disabled"
+                text="✓ FLUJO COMPLETADO",
+                fg_color=("#16a34a", "#1b5e20"),
+                state="disabled",
             )
             return
 
@@ -347,10 +353,10 @@ class RomanFairAppAdvanced(ctkinter.CTk):
                 image=ctk_img,
                 width=70,
                 height=70,
-                fg_color="#2b2b2b",
-                hover_color="#3a3a3a",
+                fg_color=("#e2e8f0", "#2b2b2b"),
+                hover_color=("#cbd5e1", "#3a3a3a"),
                 border_width=2,
-                border_color="#555555",
+                border_color=("#94a3b8", "#555555"),
                 corner_radius=6,
                 cursor="hand2",
             )
@@ -374,10 +380,10 @@ class RomanFairAppAdvanced(ctkinter.CTk):
                 image=ctk_img,
                 width=70,
                 height=70,
-                fg_color="#1e3d24",
-                hover_color="#2e6b38",
+                fg_color=("#dcfce7", "#1e3d24"),
+                hover_color=("#bbf7d0", "#2e6b38"),
                 border_width=2,
-                border_color="#2ecc71",
+                border_color=("#22c55e", "#2ecc71"),
                 corner_radius=6,
                 cursor="hand2",
             )
@@ -401,10 +407,10 @@ class RomanFairAppAdvanced(ctkinter.CTk):
                 image=ctk_img,
                 width=70,
                 height=70,
-                fg_color="#2a2010",
-                hover_color="#3a3a3a",
+                fg_color=("#fef3c7", "#2a2010"),
+                hover_color=("#fde68a", "#3a3a3a"),
                 border_width=2,
-                border_color="#ffb300",
+                border_color=("#f59e0b", "#ffb300"),
                 corner_radius=6,
                 cursor="hand2",
             )
@@ -436,22 +442,22 @@ class RomanFairAppAdvanced(ctkinter.CTk):
         # Configurar colores del modal según la procedencia
         if column_type == "archived":
             modal_title = "🔍  Inspección de Archivado"
-            header_fg = "#222222"
-            text_color = "#9e9e9e"
+            header_fg = ("#e2e8f0", "#222222")
+            text_color = ("#475569", "#9e9e9e")
             instruccion = "¿Confirma que es una GALAXIA NORMAL?"
             btn_si_text = "✔  CONFIRMAR (GALAXIA NORMAL)"
             btn_no_text = "⚠  RECLASIFICAR COMO LENTE"
         elif column_type == "secondary":
             modal_title = "🟡  Inspección de Revisión"
-            header_fg = "#1e1a0e"
-            text_color = "#ffb300"
+            header_fg = ("#fef3c7", "#1e1a0e")
+            text_color = ("#d97706", "#ffb300")
             instruccion = "¿Confirma curvatura de lente gravitacional?"
             btn_si_text = "✔  CONFIRMAR LENTE"
             btn_no_text = "✖  RECHAZAR (GALAXIA NORMAL)"
         else:  # urgent
             modal_title = "🔭  Validación de Alerta"
-            header_fg = "#0d1f14"
-            text_color = "#2ecc71"
+            header_fg = ("#dcfce7", "#0d1f14")
+            text_color = ("#15803d", "#2ecc71")
             instruccion = "¿Confirma curvatura de lente gravitacional?"
             btn_si_text = "✔  CONFIRMAR LENTE"
             btn_no_text = "✖  RECHAZAR (FALSO POSITIVO)"
@@ -481,7 +487,7 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             modal,
             text=f"Probabilidad de Lente (IA): P = {probabilidad:.4f}",
             font=ctkinter.CTkFont(size=12, weight="bold"),
-            text_color="#a0b0d0",
+            text_color=("#475569", "#a0b0d0"),
         )
         lbl_prob.pack(pady=(0, 5))
 
@@ -489,7 +495,7 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             modal,
             text=instruccion,
             font=ctkinter.CTkFont(size=13, weight="bold"),
-            text_color="#e0e0e0",
+            text_color=("#0f172a", "#e0e0e0"),
         )
         lbl_instruccion.pack(pady=(0, 10))
 
@@ -508,75 +514,87 @@ class RomanFairAppAdvanced(ctkinter.CTk):
                     if column_type == "urgent":
                         lbl_feedback.configure(
                             text="¡CORRECTO! 🔭\nSe ha confirmado la lente gravitacional.",
-                            text_color="#2ecc71",
+                            text_color=("#16a34a", "#2ecc71"),
                         )
                         self.log_status(
                             f"[EXPERTO] Muestra #{self.current_idx} validada: LENTE CONFIRMADO (¡Correcto! Predicción verificada)"
                         )
                         btn.configure(
-                            border_color="#2ecc71", fg_color="#1e3d24", state="disabled"
+                            border_color=("#16a34a", "#2ecc71"),
+                            fg_color=("#dcfce7", "#1e3d24"),
+                            state="disabled",
                         )
                     elif column_type == "archived":
                         lbl_feedback.configure(
                             text="¡DESCUBRIMIENTO RESCATADO! 🔭\nCorregido falso negativo de archivado.",
-                            text_color="#3498db",
+                            text_color=("#2563eb", "#3498db"),
                         )
                         self.log_status(
                             f"[EXPERTO] Muestra #{self.current_idx} ¡Rescate de lente! Corregido falso negativo de archivado."
                         )
                         btn.configure(
-                            border_color="#3498db", fg_color="#1a2f4c", state="disabled"
+                            border_color=("#2563eb", "#3498db"),
+                            fg_color=("#e0f2fe", "#1a2f4c"),
+                            state="disabled",
                         )
                     else:  # secondary
                         lbl_feedback.configure(
                             text="¡RESOLUCIÓN CORRECTA! 🔭\nMuestra de Revisión validada como Lente.",
-                            text_color="#3498db",
+                            text_color=("#2563eb", "#3498db"),
                         )
                         self.log_status(
                             f"[EXPERTO] Muestra #{self.current_idx} Ambigüedad resuelta: LENTE CONFIRMADO en Revisión."
                         )
                         btn.configure(
-                            border_color="#3498db", fg_color="#1a2f4c", state="disabled"
+                            border_color=("#2563eb", "#3498db"),
+                            fg_color=("#e0f2fe", "#1a2f4c"),
+                            state="disabled",
                         )
                 else:  # real_label == 0
                     if column_type == "urgent":
                         lbl_feedback.configure(
                             text="¡CORRECCIÓN EXITOSA! ❌\nFalso positivo de la IA identificado y corregido.",
-                            text_color="#e74c3c",
+                            text_color=("#dc2626", "#e74c3c"),
                         )
                         self.log_status(
                             f"[EXPERTO] Muestra #{self.current_idx} Falso positivo de la IA filtrado y corregido."
                         )
                         btn.configure(
-                            border_color="#e74c3c", fg_color="#2b2b2b", state="disabled"
+                            border_color=("#dc2626", "#e74c3c"),
+                            fg_color=("#e2e8f0", "#2b2b2b"),
+                            state="disabled",
                         )
                     elif column_type == "archived":
                         lbl_feedback.configure(
                             text="¡CORRECTO! ⚪\nSe ha confirmado que es una galaxia normal.",
-                            text_color="#9e9e9e",
+                            text_color=("#475569", "#9e9e9e"),
                         )
                         self.log_status(
                             f"[EXPERTO] Muestra #{self.current_idx} confirmada como Galaxia Normal."
                         )
                         btn.configure(
-                            border_color="#555555", fg_color="#1c1c1c", state="disabled"
+                            border_color=("#94a3b8", "#555555"),
+                            fg_color=("#f1f5f9", "#1c1c1c"),
+                            state="disabled",
                         )
                     else:  # secondary
                         lbl_feedback.configure(
                             text="¡RESOLUCIÓN CORRECTA! ⚪\nMuestra de Revisión confirmada como Galaxia Normal.",
-                            text_color="#9e9e9e",
+                            text_color=("#475569", "#9e9e9e"),
                         )
                         self.log_status(
                             f"[EXPERTO] Muestra #{self.current_idx} Ambigüedad resuelta: confirmada Galaxia Normal."
                         )
                         btn.configure(
-                            border_color="#555555", fg_color="#1c1c1c", state="disabled"
+                            border_color=("#94a3b8", "#555555"),
+                            fg_color=("#f1f5f9", "#1c1c1c"),
+                            state="disabled",
                         )
             else:
                 if real_label == 1:
                     lbl_feedback.configure(
                         text="ALERTA: ERROR DE VALIDACIÓN ❌\nEsta muestra contiene una lente gravitacional real.",
-                        text_color="#e74c3c",
+                        text_color=("#dc2626", "#e74c3c"),
                     )
                     self.log_status(
                         f"[ERROR EXPERTO] Muestra #{self.current_idx} descartada erróneamente (Contiene Lente)."
@@ -584,13 +602,15 @@ class RomanFairAppAdvanced(ctkinter.CTk):
                 else:
                     lbl_feedback.configure(
                         text="ALERTA: ERROR DE VALIDACIÓN ❌\nEsta muestra es en realidad una galaxia normal.",
-                        text_color="#e74c3c",
+                        text_color=("#dc2626", "#e74c3c"),
                     )
                     self.log_status(
                         f"[ERROR EXPERTO] Muestra #{self.current_idx} clasificada erróneamente (Es Galaxia Normal)."
                     )
                 btn.configure(
-                    border_color="#e74c3c", fg_color="#5c2424", state="disabled"
+                    border_color=("#dc2626", "#e74c3c"),
+                    fg_color=("#fee2e2", "#5c2424"),
+                    state="disabled",
                 )
 
             # Consecuencia en contadores: decrementar si era alerta urgente pendiente
@@ -633,8 +653,9 @@ class RomanFairAppAdvanced(ctkinter.CTk):
             modal,
             text="Cerrar",
             command=modal.destroy,
-            fg_color="#424242",
-            hover_color="#616161",
+            fg_color=("#64748b", "#424242"),
+            hover_color=("#475569", "#616161"),
+            text_color=("white", "white"),
             height=34,
             corner_radius=6,
         ).pack(pady=5, padx=40, fill="x")
@@ -664,7 +685,9 @@ class RomanFairAppAdvanced(ctkinter.CTk):
 
         # Restablecer el botón de ingesta
         self.btn_stream.configure(
-            state="normal", text="INICIAR INGESTA MASIVA", fg_color="#1f538d"
+            state="normal",
+            text="INICIAR INGESTA MASIVA",
+            fg_color=("#2563eb", "#1f538d"),
         )
 
     def on_closing(self):
